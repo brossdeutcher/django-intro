@@ -25,7 +25,51 @@ django-admin startproject projectname .
 python manage.py runserver
 ```
 
-## commands
+## useful commands
 ``` django-admin ``` performs admin commands before project initiated
 
 ``` python manage.py ``` performs admin functions after project initiated
+
+``` pipenv --venv ``` prints file path to virtual environment when used in virtual environment
+
+## apps from INSTALLED_APPS in settings.py
+
+django.contrib.admin - gives admin interface for managing data
+
+django.contrib.auth - used for authenticating users
+
+django.contrib.contenttypes - 
+
+django.contrib.sessions - legacy app that can be deleted
+
+django.contrib.messages - used for one-time notifications to end user
+
+django.contrib.staticfiles - used for serving static files
+
+- create a new app
+```
+python manage.py startapp appname
+```
+- register app ~ add the appname to INSTALLED_APPS in settings.py
+
+## views from views.py in an app (similar to a request/response handler)
+
+often called request handler or action in other frameworks, views in Django handle http requests and responses
+
+views.py | basic view function to handle the request and response
+```
+from django.http import HttpResponse
+
+def function_name(request):
+  return HttpResponse('response')
+```
+
+urls.py | urlpatterns is a list Django looks for that contains url path functions with the endpoint & view function
+```
+from django.urls import path
+from . import views
+
+urlpatterns = [
+  path('hello/', views.say_hello)
+]
+```
