@@ -74,3 +74,22 @@ urlpatterns = [
   path('playground/', include('playground.urls')) # to handle any endpoint with /playground, use include() with the app's url file
 ]
 ```
+
+## template (called views in other frameworks) | not used that often anymore, as Django is generally used as an api tool instead of html generator
+used to return html content to the client
+
+use curly braces in a template.html file to add code
+
+1. add a templates folder to the app
+
+2. create an html file in the new folder
+
+3. in views.py, use render() function
+```
+from django.shortcuts import render
+
+def send_html(request):
+  return render(request, 'hello.html', {'name': 'Blake'}) # third parameter is optional object to pass to template. To call in template, {use {key} in curly brackets within curly brackets}
+```
+
+4. update urlpatterns in urls.py
