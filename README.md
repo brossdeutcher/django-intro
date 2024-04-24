@@ -64,12 +64,13 @@ def function_name(request):
   return HttpResponse('response')
 ```
 
-urls.py | urlpatterns is a list Django looks for that contains url path functions with the endpoint & view function
+urls.py | urlpatterns is a list Django looks for, so make sure variable name is right spelling
 ```
 from django.urls import path
 from . import views
 
 urlpatterns = [
-  path('hello/', views.say_hello)
+  path('hello/', views.viewfunction)  # path() takes two parameters: the endpoint & the view function
+  path('playground/', include('playground.urls')) # to handle any endpoint with /playground, use include() with the app's url file
 ]
 ```
